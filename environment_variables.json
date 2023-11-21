@@ -1,0 +1,11 @@
+{
+   "STAGE": "local",
+   "SECRET_KEY": "django-insecure-x0s1orpj32jpl)a1g!b(sg6(eel6oqp^lnwc^+xh&ydt8(#)&+",
+   "AWS_ACCESS_KEY_ID": "AKIAYZPSX2F6UUH46MYF",
+   "AWS_SECRET_ACCESS_KEY": "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",
+   "AWS_STORAGE_BUCKET_NAME": "media.oldcarsweekly",
+   "DATABASE_PASSWORD": "1",
+   "DATABASE_NAME": "oldcars_localhost",
+   "DATABASE_HOST": "localhost",
+   "DATABASE_USER": "root"
+}
