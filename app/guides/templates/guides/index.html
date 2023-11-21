@@ -1,0 +1,24 @@
+
+
+<style>
+    .topics > li{
+        display: inline-block;
+        text-decoration: none;
+        margin-right: 10px;
+    }
+</style>
+
+<div class="container">
+
+
+    <div class="study_link">
+        <h1>Choose a topic</h1>
+        <ul class="topics">
+            {% for topic in topics %}
+            <li><a href="{% url 'topic' topic %}">{{topic}}</a></li>
+            {% endfor %}
+            <li>{% include 'guides/search_form.html' %}</li>
+            
+        </ul>
+    </div>
+</div>

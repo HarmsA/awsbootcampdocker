@@ -1,0 +1,5 @@
+<form method="post" action="{% url 'search_tag' %}">
+    {% csrf_token %}
+    {{tag_form}}
+</form>
+

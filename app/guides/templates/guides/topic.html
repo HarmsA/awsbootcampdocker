@@ -1,0 +1,79 @@
+{% extends 'guides/base.html' %}
+
+
+{% block content %}
+<style>
+    .answer {
+        margin: 15px auto;
+    }
+    .questions > .card  {
+        text-decoration: none;
+        width: 100%;
+        vertical-align: top;
+    }
+    .card {
+        display: inline-block;
+        height: 150px;
+    }
+    .card_question {
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+    #card_container_height {
+        height: max-content;
+    }
+    .topic_container {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+</style>
+
+<div class="topic_container">
+
+    <h1>Questions for {{topic}}</h1>
+    
+    
+    <div class="questions">
+        {% for question in questions %}
+        <div class="card mt-2 question" id="questionContainer">
+            <p class="card_question mt-2">{{question.question}}</p>
+            
+            <button class="toggle-answer" id="button">Show answer</button>
+            <p><small>Thank you {{question.user.username}}</small></p>
+
+            <div class="answer" style="display: none;" id="anserContainer">    
+                <div id="{{question.id}}">{{question.answer}}</div>
+                {% if question.code %}
+                <code>{{question.code}}</code>
+                {% endif %}
+            </div>
+
+        </div>
+        
+        {% endfor %}
+        
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.toggle-answer').click(function () {
+            var questionContainer = $(this).closest('.question');
+            var answerContainer = questionContainer.find('.answer');
+
+            // Toggle the answer visibility
+            answerContainer.slideToggle(function () {
+                // Check if overflow: scroll is needed after toggling
+                if (questionContainer.height() < questionContainer.prop('scrollHeight')) {
+                    questionContainer.css('overflow-y', 'scroll');
+                } else {
+                    questionContainer.css('overflow-y', 'hidden');
+                }
+            });
+        });
+    });
+</script>
+{% endblock content %}
+    
