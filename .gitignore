@@ -1,0 +1,3 @@
+
+# if platform is not supported in lightsale
+# docker build -t publish --platform x86_64
